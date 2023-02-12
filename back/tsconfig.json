@@ -16,6 +16,12 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@root/*": ["./src/*"],
+      "@auth/*": ["./src/auth/*"],
+      "@post/*": ["./src/post/*"],
+      "@custom/*": ["./src/custom/*"],
+    }
   }
 }

@@ -9,7 +9,6 @@ export class PostStatusValidationPipe implements PipeTransform  {
     
     transform(value: any) {
         value = value.toUpperCase();
-
         if(!this.isStatusValid(value)) {
             throw new BadRequestException(`${value}라는 값은 올바르지 않습니다.`)
         }
