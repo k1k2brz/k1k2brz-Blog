@@ -1,9 +1,11 @@
 import { User } from "@auth/user.entity";
-import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm"
+import { AbstractEntity } from "@root/abstract.entity";
+import { Comment } from "@root/comment/comment.entity";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from "typeorm"
 import { PostStatus } from "./post.model";
 
 @Entity('post')
-export class Posts extends BaseEntity {
+export class Posts extends AbstractEntity {
     @PrimaryGeneratedColumn()
     postId: number;
 
@@ -16,6 +18,9 @@ export class Posts extends BaseEntity {
     @Column()
     status: PostStatus;
 
-    @ManyToOne(type => User, user => user.posts, { eager: false})
+    @ManyToOne(type => User, user => user.posts, { eager: false })
     user: User;
+    
+    @OneToMany(type => Comment, comment => comment.posts, { eager: true })
+    commentId: Comment[];
 }

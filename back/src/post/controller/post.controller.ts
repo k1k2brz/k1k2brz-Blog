@@ -15,7 +15,7 @@ import { User } from '@auth/user.entity';
 export class PostController {
     constructor(private postService: PostService) {}
 
-    @Get('/')
+    @Get('')
     getAllPost(): Promise<Posts[]> {
         return this.postService.getAllPosts();
     }
@@ -45,11 +45,13 @@ export class PostController {
         return this.postService.deletePost(postId, user);
     }
 
-    @Patch('/:postId/status')
+    @Patch('/:postId/modify')
     updatePostStatus(
         @Param('postId', ParseIntPipe) postId: number,
-        @Body('status', PostStatusValidationPipe) status: PostStatus
-    ) {
-        return this.postService.updatePostStatus(postId, status);
+        @Body('status', PostStatusValidationPipe) status: PostStatus,
+        @Body('title') title: string,
+        @Body('content') content: string
+    ): Promise<Posts> {
+        return this.postService.updatePostStatus(postId, status, title, content);
     }
 }

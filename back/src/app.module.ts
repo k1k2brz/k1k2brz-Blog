@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm/dist';
 import { typeOrmAsyncConfig } from './configs/typeorm.config';
 import { PostModule } from './post/post.module';
-import { AuthModule } from './auth/auth.module';
+import { AuthModule } from './auth/user.module';
 import { ConfigModule } from '@nestjs/config';
 
 @Module({
@@ -13,6 +13,6 @@ import { ConfigModule } from '@nestjs/config';
     }),
     TypeOrmModule.forRootAsync(typeOrmAsyncConfig),
     PostModule,
-    AuthModule],
+    AuthModule,]
 })
 export class AppModule {}
