@@ -42,9 +42,13 @@ export class UserService {
     }
 
     // JWT패스워드 체인지 찾아볼 것
-    async changePassword(id: number, password: string): Promise<User> {
-        const pw = await this.getUserById(id);
-        pw.password = password;
+    async changePassword(id: number, password: string) {
+
+        const salt = await bcrypt.genSalt();
+        const hashedPassword = await bcrypt.hash(password, salt)
+
+        const pw = await this.getUserById(id)
+        pw.password = hashedPassword
 
         await this.userRepository.save(pw)
         return pw

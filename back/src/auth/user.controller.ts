@@ -33,10 +33,10 @@ export class AuthController {
         return this.userService.changePassword(id, password)
     }
 
-    @Post('/test')
-    @UseGuards(AuthGuard())
-    // 데코레이터 불러오기
-    test(@GetUser() user: User) {
-        console.log(user)
-    }
+    // @Post('/test')
+    // @UseGuards(AuthGuard())
+    // // 데코레이터 불러오기
+    // test(@GetUser() user: User) {
+    //     console.log(user)
+    // }
 }

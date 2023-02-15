@@ -9,12 +9,13 @@ import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { JwtStrategy } from './jwt.strategy';
 import { jwtConfig } from './configs/jwt-config';
+import { Comment } from '@root/comment/comment.entity';
 
 @Module({
   imports: [
     PassportModule.register({ defaultStrategy: 'jwt' }),
     JwtModule.registerAsync(jwtConfig),
-    TypeOrmModule.forFeature([User]),
+    TypeOrmModule.forFeature([User, Comment]),
     TypeOrmExModule.forCustomRepository([UserRepository])
   ],
   exports: [TypeOrmModule, TypeOrmExModule, JwtStrategy, PassportModule],

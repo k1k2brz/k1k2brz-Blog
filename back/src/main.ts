@@ -1,12 +1,11 @@
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
+import { AppLogger } from './app.logger';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
-    logger: process.env.NODE_ENV === 'production' 
-    ? ['error', 'warn', 'log']
-    : ['error', 'warn', 'log', 'verbose', 'debug']
+    logger: new AppLogger(),
   });
 
   const configService = app.get(ConfigService);

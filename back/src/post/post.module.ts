@@ -7,9 +7,8 @@ import { TypeOrmExModule } from '@custom/typeorm-ex.module';
 import { Posts } from './post.entity';
 import { AuthModule } from '@root/auth/user.module';
 import { Comment } from '@root/comment/comment.entity';
-import { CommentRepository } from '@root/comment/comment.repository';
 import { CommentService } from '@root/comment/comment.service';
-import { CommentController } from '@root/comment/comment.controller';
+import { CommentRepository } from '@root/comment/comment.repository';
 
 @Module({
   imports: [
@@ -18,7 +17,7 @@ import { CommentController } from '@root/comment/comment.controller';
     AuthModule,
   ],
   exports: [TypeOrmModule, TypeOrmExModule],
-  controllers: [PostController, CommentController],
+  controllers: [PostController],
   providers: [PostService, CommentService]
 })
 export class PostModule {}

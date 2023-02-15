@@ -12,8 +12,7 @@ export class CommentResponse {
   commentId: number;
   createdAt: string | Date;
   updatedAt: string | Date;
-  deletedAt: string | Date;
   comment: string;
-//   userId: User;
+  user: User;
   posts: Posts;
 }
