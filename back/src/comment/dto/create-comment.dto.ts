@@ -5,14 +5,14 @@ import { IsNotEmpty, IsString } from 'class-validator';
 export class CreateCommentDTO {
   @IsString()
   @IsNotEmpty()
-  comment: string;
+  content: string;
 }
 
 export class CommentResponse {
-  commentId: number;
+  commentId?: number;
   createdAt: string | Date;
   updatedAt: string | Date;
-  comment: string;
+  content: string;
   user: User;
   posts: Posts;
 }

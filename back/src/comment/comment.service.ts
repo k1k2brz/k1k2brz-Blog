@@ -3,7 +3,7 @@ import { User } from '@root/auth/user.entity';
 import { Posts } from '@root/post/post.entity';
 import { Comment } from './comment.entity';
 import { CommentRepository } from './comment.repository';
-import { CreateCommentDTO } from './dto/create-comment.dto';
+import { CommentResponse, CreateCommentDTO } from './dto/create-comment.dto';
 
 @Injectable()
 export class CommentService {
@@ -11,13 +11,12 @@ export class CommentService {
     private commentRepository: CommentRepository,
   ) {}
 
-  async getCommentByPostId(post: Posts): Promise<Comment[]> {
-    const query = this.commentRepository.createQueryBuilder('post');
-    query.where({ postId: post.id });
-    const comments = await query.getMany();
-
-    return comments;
-  }
+  // async getCommentByPostId(post: Posts): Promise<CommentResponse[]> {
+  //   return this.commentRepository.find({
+  //     where: { 'post.id': post },
+  //     relations: ['post'],
+  //   });
+  // }
 
   async getCommentByUserId(user: User) {
     const query = this.commentRepository.createQueryBuilder('user');
@@ -42,14 +41,14 @@ export class CommentService {
 
   async createComment(
     user: User,
-    post: Posts,
+    posts: Posts,
     createCommentDTO: CreateCommentDTO,
-  ): Promise<Comment> {
-    return this.commentRepository.createComment(user, post, createCommentDTO);
+  ): Promise<CommentResponse> {
+    return this.commentRepository.createComment(user, posts, createCommentDTO);
   }
 
-  async deleteComment(id: number, user: { id: number }, post: { id: number}): Promise<void> {
-    const result = await this.commentRepository.delete({ id, user, post });
+  async deleteComment(id: number, user: { id: number }, posts: { id: number}): Promise<void> {
+    const result = await this.commentRepository.delete({ id, user, posts });
 
     if (result.affected === 0) { 
       throw new NotFoundException(

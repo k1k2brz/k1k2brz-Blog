@@ -3,21 +3,21 @@ import { CustomRepository } from '@root/custom/typeorm-ex.decorator';
 import { Posts } from '@root/post/post.entity';
 import { Repository } from 'typeorm';
 import { Comment } from './comment.entity';
-import { CreateCommentDTO } from './dto/create-comment.dto';
+import { CommentResponse, CreateCommentDTO } from './dto/create-comment.dto';
 
 @CustomRepository(Comment)
 export class CommentRepository extends Repository<Comment> {
   async createComment(
     user: User,
-    post: Posts,
+    posts: Posts,
     createCommentDTO: CreateCommentDTO,
-  ): Promise<Comment> {
-    const { comment } = createCommentDTO;
+  ): Promise<CommentResponse> {
+    const { content } = createCommentDTO;
 
     const comments = this.create({
       user,
-      post,
-      comment,
+      posts,
+      content,
     });
 
     await this.save(comments);

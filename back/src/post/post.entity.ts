@@ -15,9 +15,9 @@ export class Posts extends AbstractEntity {
     @Column()
     status: PostStatus;
 
-    @ManyToOne(type => User, user => user.posts, { eager: false })
+    @ManyToOne(type => User, user => user.posts, { nullable: false })
     user: User;
     
-    @OneToMany(type => Comment, comment => comment.post, { eager: true })
+    @OneToMany(type => Comment, comments => comments.posts)
     comment: Comment[];
 }
