@@ -14,5 +14,5 @@ export class CommentResponse {
   updatedAt: string | Date;
   content: string;
   user: User;
-  posts: Posts;
+  post: Posts;
 }

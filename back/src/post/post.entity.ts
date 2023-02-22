@@ -18,6 +18,6 @@ export class Posts extends AbstractEntity {
     @ManyToOne(type => User, user => user.posts, { nullable: false })
     user: User;
     
-    @OneToMany(type => Comment, comments => comments.posts)
-    comment: Comment[];
+    @OneToMany(type => Comment, comments => comments.post, { eager: true })
+    comments: Comment[];
 }

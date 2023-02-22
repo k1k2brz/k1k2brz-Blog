@@ -47,8 +47,8 @@ export class CommentService {
     return this.commentRepository.createComment(user, posts, createCommentDTO);
   }
 
-  async deleteComment(id: number, user: { id: number }, posts: { id: number}): Promise<void> {
-    const result = await this.commentRepository.delete({ id, user, posts });
+  async deleteComment(id: number, user: { id: number }, post: { id: number}): Promise<void> {
+    const result = await this.commentRepository.delete({ id, user, post });
 
     if (result.affected === 0) { 
       throw new NotFoundException(

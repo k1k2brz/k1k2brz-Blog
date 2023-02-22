@@ -13,6 +13,6 @@ export class Comment extends AbstractEntity {
   @ManyToOne(type => User, user => user.comment, { nullable: false })
   user: User
   
-  @ManyToOne(type => Posts, posts => posts.comment, { nullable: false })
-  posts: Posts
+  @ManyToOne(type => Posts, post => post.comments, { nullable: false })
+  post: Posts
 } 

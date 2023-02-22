@@ -9,14 +9,14 @@ import { CommentResponse, CreateCommentDTO } from './dto/create-comment.dto';
 export class CommentRepository extends Repository<Comment> {
   async createComment(
     user: User,
-    posts: Posts,
+    post: Posts,
     createCommentDTO: CreateCommentDTO,
   ): Promise<CommentResponse> {
     const { content } = createCommentDTO;
 
     const comments = this.create({
       user,
-      posts,
+      post,
       content,
     });
 

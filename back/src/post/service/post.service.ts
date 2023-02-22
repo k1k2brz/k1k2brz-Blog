@@ -4,6 +4,7 @@ import { CreatePostDTO } from '../dto/createPosts.dto';
 import { PostRepository } from '../repository/post.repository';
 import { Posts } from '../post.entity';
 import { User } from '@root/auth/user.entity';
+import { CreateCommentDTO } from '@root/comment/dto/create-comment.dto';
 
 @Injectable()
 export class PostService {
@@ -31,8 +32,8 @@ export class PostService {
     return idFound;
   }
 
-  async createPost(CreatePostDTO: CreatePostDTO, user: User): Promise<Posts> {
-    return this.PostRepository.createPost(CreatePostDTO, user);
+  async createPost(CreatePostDTO: CreatePostDTO, user: User, comments: CreateCommentDTO[]): Promise<Posts> {
+    return this.PostRepository.createPost(CreatePostDTO, user, comments);
   }
 
   async deletePost(

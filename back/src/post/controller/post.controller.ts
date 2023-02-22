@@ -50,10 +50,11 @@ export class PostController {
   createPost(
     @Body() CreatePostDTO: CreatePostDTO,
     @GetUser() user: User,
+    @Body() comments: CreateCommentDTO[]
   ): Promise<Posts> {
     // 게시글 생성시 토큰 필요하게
     // 하나만 return하기에 Posts만 타입을 준 것.
-    return this.postService.createPost(CreatePostDTO, user);
+    return this.postService.createPost(CreatePostDTO, user, comments);
   }
 
   @Get('/:postId')
