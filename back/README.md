@@ -62,5 +62,12 @@
 {<br />
     "content": string<br />
     "userId": number<br />
-    "postId: number<br />
+    "id": number (postId)<br />
+}
+
+### 댓글 삭제
+@POST /post/comment/:commentId<br />
+{<br />
+    "userId": number<br />
+    "id": number (postId)<br />
 }

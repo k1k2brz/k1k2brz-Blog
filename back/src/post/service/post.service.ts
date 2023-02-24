@@ -5,10 +5,14 @@ import { PostRepository } from '../repository/post.repository';
 import { Posts } from '../post.entity';
 import { User } from '@root/auth/user.entity';
 import { CreateCommentDTO } from '@root/comment/dto/create-comment.dto';
+import { UserRepository } from '@root/auth/user.repository';
 
 @Injectable()
 export class PostService {
-  constructor(private PostRepository: PostRepository) {}
+  constructor(
+    private PostRepository: PostRepository,
+    private userRepository: UserRepository
+    ) {}
 
   async getAllPosts(): Promise<Posts[]> {
     return this.PostRepository.find();
@@ -47,7 +51,7 @@ export class PostService {
     }
   }
 
-  async updatePostStatus(
+  async updatePost(
     postId: number,
     status: PostStatus,
     title: string,

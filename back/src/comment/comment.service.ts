@@ -7,9 +7,7 @@ import { CommentResponse, CreateCommentDTO } from './dto/create-comment.dto';
 
 @Injectable()
 export class CommentService {
-  constructor(
-    private commentRepository: CommentRepository,
-  ) {}
+  constructor(private commentRepository: CommentRepository) {}
 
   // async getCommentByPostId(post: Posts): Promise<CommentResponse[]> {
   //   return this.commentRepository.find({
@@ -26,19 +24,6 @@ export class CommentService {
     return posts;
   }
 
-  async getCommentById(id: number) {
-    const idFound = await this.commentRepository.findOne({
-      where: { id },
-    });
-
-    if (!idFound) {
-      throw new NotFoundException(
-        `${id}는 존재하지 않는 댓글 번호입니다`,
-      );
-    }
-    return idFound;
-  }
-
   async createComment(
     user: User,
     posts: Posts,
@@ -47,13 +32,15 @@ export class CommentService {
     return this.commentRepository.createComment(user, posts, createCommentDTO);
   }
 
-  async deleteComment(id: number, user: { id: number }, post: { id: number}): Promise<void> {
+  async deleteComment(
+    id: number,
+    user: { id: number; username: string; password: string },
+    post: { id: number; content: string; },
+  ): Promise<void> {
     const result = await this.commentRepository.delete({ id, user, post });
 
-    if (result.affected === 0) { 
-      throw new NotFoundException(
-        `${id}는 존재하지 않는 댓글 번호입니다.`,
-      );
+    if (result.affected === 0) {
+      throw new NotFoundException(`${id}는 존재하지 않는 댓글 번호입니다.`);
     }
   }
 }

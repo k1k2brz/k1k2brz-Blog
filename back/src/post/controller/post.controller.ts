@@ -71,13 +71,13 @@ export class PostController {
   }
 
   @Patch('/:postId/modify')
-  updatePostStatus(
+  updatePost(
     @Param('postId', ParseIntPipe) postId: number,
     @Body('status', PostStatusValidationPipe) status: PostStatus,
     @Body('title') title: string,
     @Body('content') content: string,
   ): Promise<Posts> {
-    return this.postService.updatePostStatus(postId, status, title, content);
+    return this.postService.updatePost(postId, status, title, content);
   }
 
   /* ======== Comment ========== */
@@ -103,5 +103,14 @@ export class PostController {
   @Get('/comment/user/:userId')
   getCommentByUserId(@Param('userId') user: User): Promise<Comment[]> {
     return this.commentService.getCommentByUserId(user)
+  }
+
+  @Delete('/comment/:commentId')
+  deleteComment(
+    @Param('commentId', ParseIntPipe) commentId: number,
+    @GetUser() user: User,
+    @Body() post: Posts
+  ): Promise<void> {
+    return this.commentService.deleteComment(commentId, user, post);
   }
 }
