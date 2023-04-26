@@ -93,17 +93,10 @@ export class PostController {
     return this.commentService.createComment(user, posts, createCommentDTO)
   }
 
-  // @Get('/comment/post/:postId/')
-  // getCommentByPostId(@Param('postId') post: Posts): Promise<CommentResponse[]> {
-  //   // const { id: postId } = post
-    
-  //   return this.commentService.getCommentByPostId(post)
+  // @Get('/comment/user/:userId')
+  // getCommentByUserId(@Param('userId') user: User): Promise<Comment[]> {
+  //   return this.commentService.getCommentByUserId(user)
   // }
-
-  @Get('/comment/user/:userId')
-  getCommentByUserId(@Param('userId') user: User): Promise<Comment[]> {
-    return this.commentService.getCommentByUserId(user)
-  }
 
   @Delete('/comment/:commentId')
   deleteComment(

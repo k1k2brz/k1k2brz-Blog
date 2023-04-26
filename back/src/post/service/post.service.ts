@@ -11,7 +11,7 @@ import { UserRepository } from '@root/auth/user.repository';
 export class PostService {
   constructor(
     private PostRepository: PostRepository,
-    private userRepository: UserRepository
+    // private userRepository: UserRepository
     ) {}
 
   async getAllPosts(): Promise<Posts[]> {

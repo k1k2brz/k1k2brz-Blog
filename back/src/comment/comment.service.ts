@@ -9,19 +9,18 @@ import { CommentResponse, CreateCommentDTO } from './dto/create-comment.dto';
 export class CommentService {
   constructor(private commentRepository: CommentRepository) {}
 
-  // async getCommentByPostId(post: Posts): Promise<CommentResponse[]> {
-  //   return this.commentRepository.find({
-  //     where: { 'post.id': post },
-  //     relations: ['post'],
-  //   });
-  // }
+  async getCommentByUserId(userId: User): Promise<Comment[]> {
+    const comments = await this.commentRepository
+    .createQueryBuilder('comment')
+    .leftJoinAndSelect('comment.user', 'user')
+    .where('user.id = :userId', { userId })
+    .getMany();
+    
+    if (!comments) {
+      throw new NotFoundException(`코멘트가 존재하지 않습니다.`);
+    }
 
-  async getCommentByUserId(user: User) {
-    const query = this.commentRepository.createQueryBuilder('user');
-    query.where('comment.userId = :userId', { userId: user.id });
-    const posts = await query.getMany();
-
-    return posts;
+    return comments;
   }
 
   async createComment(

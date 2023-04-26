@@ -5,10 +5,16 @@ import { UserService } from './user.service';
 import { AuthCredentialsDTO } from './dto/auth-credentials.dto';
 import { User } from './user.entity';
 import { GetUser } from './get-user.decorator';
+import { CommentService } from '@root/comment/comment.service';
+import { CommentResponse } from '@root/comment/dto/create-comment.dto';
+import { Comment } from '@root/comment/comment.entity';
 
 @Controller('auth')
 export class AuthController {
-    constructor(private userService: UserService) { }
+    constructor(
+        private userService: UserService,
+        private commentService: CommentService,
+        ) { }
 
     @Post('/signup')
     SignUp(@Body() authCredentialsDTO: AuthCredentialsDTO): Promise<void> {
@@ -31,6 +37,11 @@ export class AuthController {
         @Body('password') password: string,
     ): Promise<User> {
         return this.userService.changePassword(id, password)
+    }
+
+    @Get('/:id/comments')
+    getCommentByUserId(@Param('id') id: User): Promise<Comment[]> {
+        return this.commentService.getCommentByUserId(id)
     }
 
     // @Post('/test')
