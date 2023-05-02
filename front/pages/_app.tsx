@@ -1,10 +1,12 @@
 import { AppProps } from "next/app";
 import Head from "next/head";
 import React from "react";
+import GlobalStyle from "../styles/styles";
 
-const App = ({ Component }: AppProps) => {
+const App = ({ Component, pageProps }: AppProps) => {
   return (
     <>
+      <GlobalStyle />
       <Head>
         <meta charSet="utf-8" />
         <meta
@@ -14,7 +16,7 @@ const App = ({ Component }: AppProps) => {
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
         <title>My Blog</title>
       </Head>
-      <Component />
+      <Component {...pageProps} />
     </>
   );
 };
