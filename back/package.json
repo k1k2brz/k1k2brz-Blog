@@ -1,10 +1,10 @@
 {
-  "name": "back",
+  "name": "k1k2brz-blog-back",
   "version": "0.0.1",
   "description": "",
-  "author": "",
+  "author": "Taeil",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "ISC",
   "scripts": {
     "build": "cross-env NODE_ENV=prod nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
