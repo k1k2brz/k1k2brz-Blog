@@ -1,20 +1,40 @@
 {
   "compilerOptions": {
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "lib": ["ES2022", "DOM"],
+    "jsx": "preserve",
+    "module": "esnext",
+    "moduleResolution": "Node",
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "strict": true,
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "@hooks/*": ["hooks/*"],
+      "@components/*": ["components/*"],
+      "@pages/*": ["pages/*"],
+    },
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
+    "incremental": true,
     "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs",
+      "moduleResolution": "Node",
+      "target": "es5",
+      "esModuleInterop": true
+    }
+  },
+  "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }

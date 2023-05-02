@@ -1,28 +1,33 @@
 {
-  "name": "front",
-  "version": "0.1.0",
-  "private": true,
+  "name": "k1k2brz-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "next dev -p 3060",
+    "dev": "next -p 3060",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next -p 3060",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
+  "author": "Taeil",
+  "license": "ISC",
   "dependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.1",
     "@types/styled-components": "^5.1.26",
-    "babel-plugin-styled-components": "^2.0.7",
-    "next": "13.1.6",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "styled-components": "^5.3.6",
-    "styled-reset": "^4.4.5"
+    "babel-plugin-styled-components": "^2.1.1",
+    "next": "^12.3.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-refresh": "^0.14.0",
+    "styled-components": "^5.3.10",
+    "typescript": "^5.0.4"
   },
   "devDependencies": {
-    "@types/node": "18.13.0",
-    "@types/react": "18.0.27",
-    "@types/react-dom": "18.0.10",
-    "eslint": "8.33.0",
-    "eslint-config-next": "13.1.6",
-    "typescript": "4.9.5"
+    "eslint": "^8.39.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0"
   }
 }
