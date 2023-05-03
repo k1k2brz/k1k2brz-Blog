@@ -42,7 +42,7 @@ export class PostService {
 
   async deletePost(
     id: number,
-    user: { id: number; username: string; password: string },
+    user: { id: number; email: string; password: string },
   ): Promise<void> {
     const result = await this.PostRepository.delete({ id, user });
 

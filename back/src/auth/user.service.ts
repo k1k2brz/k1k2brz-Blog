@@ -12,17 +12,17 @@ export class UserService {
         private jwtService: JwtService
     ) { }
 
-    async SignUp(authCredentialsDTO: AuthCredentialsDTO): Promise<void> {
-        return this.userRepository.createUser(authCredentialsDTO);
+    async SignUp(user: User): Promise<void> {
+        return this.userRepository.createUser(user);
     }
 
     async LogIn(authCredentialsDTO: AuthCredentialsDTO): Promise<{accessToken: string}> {
-        const { username, password } = authCredentialsDTO;
-        const user = await this.userRepository.findOne({ where: { username: username }});
+        const { email, password } = authCredentialsDTO;
+        const user = await this.userRepository.findOne({ where: { email: email }});
 
         if (user && (await bcrypt.compare(password, user.password))) {
             // Token
-            const payload = { username }
+            const payload = { email }
             const accessToken = await this.jwtService.sign(payload);
             
             return { accessToken: accessToken };
@@ -53,4 +53,6 @@ export class UserService {
         await this.userRepository.save(pw)
         return pw
     }
+
+    // 회원탈퇴
 }

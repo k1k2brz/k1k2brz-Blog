@@ -1,3 +1,3 @@
 export default () => ({
-  appSecret: process.env.JWT_SECRET,
+  appSecret: process.env.NODE_ENV !== 'production' ? '.env.dev' : '.env.prod',
 });
