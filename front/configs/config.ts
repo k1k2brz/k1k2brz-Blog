@@ -1,0 +1,1 @@
+export const backUrl = process.env.NODE_ENV === 'production' ? '배포시 수정' : 'http://localhost:3065';
