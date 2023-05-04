@@ -10,11 +10,12 @@ async function bootstrap() {
   });
 
   const configService = app.get(ConfigService);
-  const host = configService.get('serverport');
+  const host = configService.get<number>('DB_PORT');
+  const port = configService.get<number>('PORT');
 
 <<<<<<< Updated upstream
   app.enableCors();
-  await app.listen(host);
+  await app.listen(port || 3000);
   console.log(`Application listening on port ${host}`);
 =======
   app.enableCors({

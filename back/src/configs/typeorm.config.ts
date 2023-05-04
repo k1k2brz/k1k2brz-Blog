@@ -1,6 +1,6 @@
 import { TypeOrmModuleAsyncOptions, TypeOrmModuleOptions } from "@nestjs/typeorm";
 import { User } from "@auth/user.entity";
-import { Posts } from "@root/post/post.entity";
+import { Posts } from "@post/post.entity";
 import { ConfigModule, ConfigService } from "@nestjs/config";
 import { Comment } from "@root/comment/comment.entity";
 

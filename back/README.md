@@ -3,14 +3,15 @@
 ### 회원가입
 @POST /auth/signup<br />
 {<br />
-    "username": string<br />
+    "email": string<br />
+    "nickname": string<br />
     "password": string<br />
 }
 
 ### 로그인
 @POST /auth/login<br />
 {<br />
-    "username": string<br />
+    "email": string<br />
     "password": string<br />
 }
 

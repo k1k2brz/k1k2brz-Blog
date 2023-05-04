@@ -1,16 +1,17 @@
 import React from 'react'
+import Navbar from './nav/nav';
 
 interface typing {
     children: React.ReactNode;
 }
 
-const TitleLayout = ({ children }: typing) => {
+const AppLayout = ({ children }: typing) => {
   return (
     <div>
-        <div>부분 공통 레이아웃</div>
+        <Navbar />
         {children}
     </div>
   )
 }
 
-export default TitleLayout
+export default AppLayout;

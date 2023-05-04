@@ -1,8 +1,11 @@
+import AppLayout from '@components/AppLayout'
 import React from 'react'
 
 const Home = () => {
   return (
-    <div>index</div>
+    <AppLayout>
+      <div>메인페이지</div>
+    </AppLayout>
   )
 }
 

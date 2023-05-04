@@ -1,12 +1,10 @@
 import { Controller, Post, Body, ValidationPipe, UseGuards, Param, Get, Patch } from '@nestjs/common';
 import { ParseIntPipe } from "@nestjs/common/pipes"
-import { AuthGuard } from "@nestjs/passport";
 import { UserService } from './user.service';
 import { AuthCredentialsDTO } from './dto/auth-credentials.dto';
 import { User } from './user.entity';
 import { GetUser } from './get-user.decorator';
 import { CommentService } from '@root/comment/comment.service';
-import { CommentResponse } from '@root/comment/dto/create-comment.dto';
 import { Comment } from '@root/comment/comment.entity';
 import { AuthSignupDTO } from './dto/auth-signup.dto';
 
@@ -18,13 +16,8 @@ export class AuthController {
         ) { }
 
     @Post('/signup')
-<<<<<<< Updated upstream
-    SignUp(@Body() authCredentialsDTO: AuthCredentialsDTO): Promise<void> {
-        return this.userService.SignUp(authCredentialsDTO);
-=======
     SignUp(@Body() authSignupDTO: AuthSignupDTO): Promise<void> {
         return this.userService.SignUp(authSignupDTO);
->>>>>>> Stashed changes
     }
 
     @Post('/login')

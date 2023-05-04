@@ -33,7 +33,7 @@ export class CommentService {
 
   async deleteComment(
     id: number,
-    user: { id: number; username: string; password: string },
+    user: { id: number; email: string; password: string },
     post: { id: number; content: string; },
   ): Promise<void> {
     const result = await this.commentRepository.delete({ id, user, post });

@@ -1,12 +1,3 @@
-<<<<<<< Updated upstream
-import React from 'react'
-
-export default function Signup() {
-  return (
-    <div>Signup</div>
-  )
-}
-=======
 import { useCallback, useState } from "react";
 import { Button, Error, Form, Header, Input, Label, LinkContainer, SignupContainer, Success } from "./styles";
 import useInput from "@hooks/useInput";
@@ -115,4 +106,3 @@ const SignUp = () => {
 };
 
 export default SignUp;
->>>>>>> Stashed changes

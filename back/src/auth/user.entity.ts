@@ -4,10 +4,13 @@ import { Posts } from "@root/post/post.entity";
 import { Column, Entity, OneToMany, Unique } from "typeorm";
 
 @Entity('user')
-@Unique(['username']) // 같은 유저이름이면 에러 반환
+@Unique(['email']) // 같은 유저이름이면 에러 반환
 export class User extends AbstractEntity {
     @Column()
-    username: string;
+    email: string;
+
+    @Column()
+    nickname: string;
 
     @Column()
     password: string;
