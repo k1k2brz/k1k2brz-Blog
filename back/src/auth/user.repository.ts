@@ -7,11 +7,12 @@ import {
   InternalServerErrorException,
 } from '@nestjs/common';
 import * as bcrypt from 'bcryptjs';
+import { AuthSignupDTO } from './dto/auth-signup.dto';
 
 @CustomRepository(User)
 export class UserRepository extends Repository<User> {
-  async createUser(User: User): Promise<void> {
-    const { email, nickname, password } = User;
+  async createUser(authSignupDTO: AuthSignupDTO): Promise<void> {
+    const { email, nickname, password } = authSignupDTO;
 
     const salt = await bcrypt.genSalt();
     const hashedPassword = await bcrypt.hash(password, salt);

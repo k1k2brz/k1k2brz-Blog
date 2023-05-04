@@ -6,6 +6,7 @@ import { User } from './user.entity';
 import { GetUser } from './get-user.decorator';
 import { CommentService } from '@root/comment/comment.service';
 import { Comment } from '@root/comment/comment.entity';
+import { AuthSignupDTO } from './dto/auth-signup.dto';
 
 @Controller('auth')
 export class AuthController {
@@ -15,8 +16,8 @@ export class AuthController {
         ) { }
 
     @Post('/signup')
-    SignUp(@Body() User: User): Promise<void> {
-        return this.userService.SignUp(User);
+    SignUp(@Body() authSignupDTO: AuthSignupDTO): Promise<void> {
+        return this.userService.SignUp(authSignupDTO);
     }
 
     @Post('/login')
