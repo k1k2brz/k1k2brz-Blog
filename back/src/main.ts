@@ -13,11 +13,6 @@ async function bootstrap() {
   const host = configService.get<number>('DB_PORT');
   const port = configService.get<number>('PORT');
 
-<<<<<<< Updated upstream
-  app.enableCors();
-  await app.listen(port || 3000);
-  console.log(`Application listening on port ${host}`);
-=======
   app.enableCors({
     origin: 'http://localhost:3060',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
@@ -25,6 +20,5 @@ async function bootstrap() {
   });
   await app.listen(port || 3065);
   console.log(`Application listening on port ${port}`);
->>>>>>> Stashed changes
 }
 bootstrap();

@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from './nav/nav';
+import Footer from './footer/footer';
 
 interface typing {
     children: React.ReactNode;
@@ -7,10 +8,11 @@ interface typing {
 
 const AppLayout = ({ children }: typing) => {
   return (
-    <div>
+    <>
         <Navbar />
         {children}
-    </div>
+        <Footer />
+    </>
   )
 }
 

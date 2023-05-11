@@ -4,7 +4,8 @@ import React from 'react'
 const Home = () => {
   return (
     <AppLayout>
-      <div>메인페이지</div>
+      <div>Old window + Vaporwave 컨셉으로 만들기</div>
+      안녕하세요 ~의 블로그입니다.
     </AppLayout>
   )
 }

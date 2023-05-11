@@ -23,7 +23,7 @@ export class UserRepository extends Repository<User> {
       await this.save(createUser);
     } catch (error) {
       if (error.code === '23505') {
-        throw new ConflictException('이미 존재하는 아이디입니다.');
+        throw new ConflictException('이미 존재하는 이메일입니다.');
       } else {
         throw new InternalServerErrorException();
       }

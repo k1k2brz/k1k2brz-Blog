@@ -72,7 +72,7 @@ export const Button = styled.button`
   border: none;
   font-size: 18px;
   font-weight: 900;
-  height: 44px;
+  height: 40px;
   min-width: 96px;
   padding: 0 16px 3px;
   transition: all 80ms linear;

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const SignupContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -17,6 +18,11 @@ export const Header = styled.header`
   letter-spacing: -0.75px;
   margin-top: 30px;
   margin-bottom: 30px;
+  @media screen and (max-width: 768px) {
+    font-size: 30px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
 `;
 
 export const Form = styled.form`
@@ -39,6 +45,9 @@ export const Label = styled.label`
     line-height: 1.46666667;
     font-weight: 700;
   }
+  @media screen and (max-width: 768px) {
+    margin-bottom: 14px;
+  }
 `;
 
 export const Input = styled.input`
@@ -52,7 +61,7 @@ export const Input = styled.input`
   color: rgba(var(--sk_primary_foreground, 29, 28, 29), 1);
   background-color: rgba(var(--sk_primary_background, 255, 255, 255), 1);
   padding: 12px;
-  height: 44px;
+  height: 40px;
   padding-top: 11px;
   padding-bottom: 13px;
   font-size: 18px;
@@ -60,6 +69,12 @@ export const Input = styled.input`
   &:focus {
     --saf-0: rgba(var(--sk_highlight, 18, 100, 163), 1);
     box-shadow: 0 0 0 1px var(--saf-0), 0 0 0 5px rgba(29, 155, 209, 0.3);
+  }
+  @media screen and (max-width: 768px) {
+    height: 28px;
+    font-size: 14px;
+    padding-top: 9px;
+    padding-bottom: 10px;
   }
 `;
 
@@ -89,12 +104,22 @@ export const Button = styled.button`
     --saf-0: rgba(var(--sk_highlight, 18, 100, 163), 1);
     box-shadow: 0 0 0 1px var(--saf-0), 0 0 0 5px rgba(29, 155, 209, 0.3);
   }
+  @media screen and (max-width: 768px) {
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    height: 36px;
+    padding: 3px 14px 3px;
+  }
 `;
 
 export const Error = styled.div`
   color: #000;
   margin: 8px 0 16px;
   font-weight: bold;
+  @media screen and (max-width: 768px) {
+    margin: 6px 0 12px;
+  }
 `;
 
 export const Success = styled.div`
