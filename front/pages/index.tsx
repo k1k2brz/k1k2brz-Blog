@@ -1,11 +1,11 @@
 import AppLayout from '@components/AppLayout'
+import Mainpage from '@components/mainpage/mainpage'
 import React from 'react'
 
 const Home = () => {
   return (
     <AppLayout>
-      <div>Old window + Vaporwave 컨셉으로 만들기</div>
-      안녕하세요 ~의 블로그입니다.
+      <Mainpage />
     </AppLayout>
   )
 }

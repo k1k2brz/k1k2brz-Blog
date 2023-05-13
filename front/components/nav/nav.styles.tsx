@@ -13,7 +13,6 @@ export const Nav = styled.nav`
   z-index: 10;
   border-bottom: 1px solid #f2f2f2;
   @media screen and (max-width: 768px) {
-    height: 60px;
     font-size: .8rem;
   }
 `;
@@ -28,7 +27,7 @@ export const Logo = styled.p`
     font-weight: 700;
   }
   @media screen and (max-width: 768px) {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 `;
 
