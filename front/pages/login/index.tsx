@@ -1,11 +1,13 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Button, Error, Form, Header, Input, Label, LinkContainer, LoginContainer } from "./styles";
 import Link from "next/link";
 import useInput from "@hooks/useInput";
 import { logInAPI } from "apis/user";
 import AppLayout from "@components/AppLayout";
+import { useRouter } from "next/router";
 
 const Login = () => {
+  const router = useRouter();
   const [loginError, setLoginError] = useState(false);
   const [email, onChangeEmail] = useInput("");
   const [password, onChangePassword] = useInput("");
@@ -15,9 +17,8 @@ const Login = () => {
       setLoginError(false);
       logInAPI({ email, password })
         .then((res) => {
-          console.log(res);
-          // router.replace("/");
-          // setSignUpSuccess(true);
+          localStorage.setItem("Token", res.accessToken);
+          router.replace("/");
         })
         .catch((error) => {
           console.log(error);
@@ -26,6 +27,12 @@ const Login = () => {
     },
     [email, password]
   );
+
+  useEffect(() => {
+    if (localStorage.getItem("Token")) {
+      router.push('/')
+    }
+  }, []);
 
   return (
     <AppLayout>

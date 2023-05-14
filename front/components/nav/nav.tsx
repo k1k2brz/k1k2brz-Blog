@@ -12,12 +12,20 @@ const Navbar = () => {
         <NavItem>
           <Link href="/">Home</Link>
         </NavItem>
-        <NavItem>
-          <Link href="login">LogIn</Link>
-        </NavItem>
-        <NavItem>
-          <Link href="signup">Sign-Up</Link>
-        </NavItem>
+        {localStorage.getItem("Token") ? (
+          <button>
+            LogOut
+          </button>
+        ) : (
+          <>
+            <NavItem>
+              <Link href="login">LogIn</Link>
+            </NavItem>
+            <NavItem>
+              <Link href="signup">Sign-Up</Link>
+            </NavItem>
+          </>
+        )}
       </NavMenu>
     </Nav>
   );

@@ -64,6 +64,7 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
+  text-align: center;
   margin-bottom: 12px;
   width: 100%;
   max-width: 100%;

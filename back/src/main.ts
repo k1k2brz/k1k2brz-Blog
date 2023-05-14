@@ -2,6 +2,7 @@ import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 import { AppLogger } from './app.logger';
 import { AppModule } from './app.module';
+import { setupSwagger } from 'src/util/swagger'
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
@@ -18,6 +19,9 @@ async function bootstrap() {
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
   });
+
+  setupSwagger(app);
+
   await app.listen(port || 3065);
   console.log(`Application listening on port ${port}`);
 }

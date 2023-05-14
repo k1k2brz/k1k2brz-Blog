@@ -1,5 +1,6 @@
 import { Controller, Post, Body, ValidationPipe, UseGuards, Param, Get, Patch } from '@nestjs/common';
 import { ParseIntPipe } from "@nestjs/common/pipes"
+import { ApiTags, ApiOperation, ApiCreatedResponse } from '@nestjs/swagger'
 import { UserService } from './user.service';
 import { AuthCredentialsDTO } from './dto/auth-credentials.dto';
 import { User } from './user.entity';
@@ -9,6 +10,7 @@ import { Comment } from '@root/comment/comment.entity';
 import { AuthSignupDTO } from './dto/auth-signup.dto';
 
 @Controller('auth')
+@ApiTags('User API')
 export class AuthController {
     constructor(
         private userService: UserService,
@@ -16,6 +18,8 @@ export class AuthController {
         ) { }
 
     @Post('/signup')
+    @ApiOperation({ summary: '회원가입 API', description: '사용자 생성' })
+    @ApiCreatedResponse({ description: '201 사용자 생성', type: User })
     SignUp(@Body() authSignupDTO: AuthSignupDTO): Promise<void> {
         return this.userService.SignUp(authSignupDTO);
     }

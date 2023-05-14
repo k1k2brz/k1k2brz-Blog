@@ -92,10 +92,6 @@ const GlobalStyle = createGlobalStyle`
     form {
         box-sizing: border-box;
     }
-
-    button {
-        all: unset;
-    }
 `;
 
 export default GlobalStyle;

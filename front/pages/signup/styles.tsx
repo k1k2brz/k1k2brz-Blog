@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const SignupContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -79,6 +78,7 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
+  text-align: center;
   margin-bottom: 12px;
   width: 100%;
   max-width: 100%;
@@ -123,8 +123,12 @@ export const Error = styled.div`
 `;
 
 export const Success = styled.div`
-  color: #2eb67d;
+  color: #000;
+  margin: 8px 0 16px;
   font-weight: bold;
+  @media screen and (max-width: 768px) {
+    margin: 6px 0 12px;
+  }
 `;
 
 export const LinkContainer = styled.p`
