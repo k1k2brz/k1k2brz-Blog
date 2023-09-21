@@ -1,5 +1,5 @@
 ## Technology Stacks
-Nest.js, TypeORM, PostgreSQL, React, Next.js, React-Query, Styled-Components, Github actions
+Nest.js, TypeORM, PostgreSQL, React, Next.js, React-Query, Recoil, Styled-Components, Github actions
 
 ## Summary
 백엔드단의 이해를 위해 시작한 Nest.js 연습용 프로젝트입니다.
