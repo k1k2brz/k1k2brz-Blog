@@ -1,13 +1,16 @@
-import AppLayout from '@components/AppLayout'
-import Mainpage from '@components/mainpage/mainpage'
-import React from 'react'
+import AppLayout from '@components/AppLayout';
+import Mainpage from '@components/mainpage/mainpage';
+import React from 'react';
+import { RecoilRoot, atom, selector, useRecoilState, useRecoilValue } from 'recoil';
 
 const Home = () => {
   return (
-    <AppLayout>
-      <Mainpage />
-    </AppLayout>
-  )
-}
+    <RecoilRoot>
+      <AppLayout>
+        <Mainpage />
+      </AppLayout>
+    </RecoilRoot>
+  );
+};
 
-export default Home
+export default Home;
