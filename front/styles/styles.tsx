@@ -92,6 +92,11 @@ const GlobalStyle = createGlobalStyle`
     form {
         box-sizing: border-box;
     }
+
+    a {
+        text-decoration-line: none;
+        color: black;
+    }
 `;
 
 export default GlobalStyle;

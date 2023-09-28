@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   CommentList,
   MainArticle,
@@ -26,7 +26,8 @@ import {
   SectionHeader,
   SectionSeeMore,
   TagList,
-} from "./mainpage.styles";
+} from './mainpage.styles';
+import Link from 'next/link';
 
 const Mainpage = () => {
   return (
@@ -37,7 +38,7 @@ const Mainpage = () => {
           <MainTitle>
             안녕하세요.
             <br />
-            <span style={{color: '#7C3E66'}}>k1k2brz</span>의 블로그입니다.
+            <span style={{ color: '#7C3E66' }}>k1k2brz</span>의 블로그입니다.
           </MainTitle>
           <MainImage>Image</MainImage>
         </MainHeader>
@@ -45,7 +46,7 @@ const Mainpage = () => {
           <MainContentsBox>
             <MainContentHead>
               <SectionHeader>Contents</SectionHeader>
-              <SectionSeeMore>더보기</SectionSeeMore>
+              <SectionSeeMore href="/contents">더보기</SectionSeeMore>
             </MainContentHead>
             <MainLineContents />
             <MainContentsMaps>
@@ -73,7 +74,7 @@ const Mainpage = () => {
             <MainCategoryBox>
               <MainContentHead>
                 <SectionHeader>Categories</SectionHeader>
-                <SectionSeeMore>더보기</SectionSeeMore>
+                <SectionSeeMore href="/categories">더보기</SectionSeeMore>
               </MainContentHead>
               <MainLine />
               <MainTags>
@@ -83,7 +84,7 @@ const Mainpage = () => {
             <MainCommentBox>
               <MainContentHead>
                 <SectionHeader>Recent Comments</SectionHeader>
-                <SectionSeeMore>더보기</SectionSeeMore>
+                <SectionSeeMore href="/recnetcomment">더보기</SectionSeeMore>
               </MainContentHead>
               <MainLine />
               <MainComments>

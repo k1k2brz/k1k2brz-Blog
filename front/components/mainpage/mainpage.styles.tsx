@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styled from "styled-components";
 
 export const MainpageContainer = styled.main`
@@ -82,7 +83,7 @@ export const SectionHeader = styled.p`
   text-transform: uppercase;
 `;
 
-export const SectionSeeMore = styled.button`
+export const SectionSeeMore = styled(Link)`
   font-size: 12px;
   border: none;
   background: none;
